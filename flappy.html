@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flappy Bird CF Edition</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: monospace;
+      color: white;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: linear-gradient(to bottom, #87CEEB, #fff);
+    }
+    #back {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #000;
+      color: #0f0;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a id="back" href="index.html">← Back to Calculator</a>
+  <canvas id="gameCanvas" width="320" height="480"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let birdY = 150;
+    let birdVY = 0;
+    const gravity = 0.6;
+    const lift = -10;
+
+    let pipes = [];
+    let frame = 0;
+    let score = 0;
+
+    document.addEventListener("keydown", () => birdVY = lift);
+    document.addEventListener("click", () => birdVY = lift);
+
+    function drawBird() {
+      ctx.fillStyle = "#FFD700";
+      ctx.fillRect(50, birdY, 20, 20);
+    }
+
+    function drawPipe(pipe) {
+      ctx.fillStyle = "#228B22";
+      ctx.fillRect(pipe.x, 0, 40, pipe.top);
+      ctx.fillRect(pipe.x, pipe.bottom, 40, canvas.height - pipe.bottom);
+    }
+
+    function updatePipes() {
+      if (frame % 90 === 0) {
+        let top = Math.random() * 200 + 20;
+        let gap = 120;
+        pipes.push({
+          x: canvas.width,
+          top: top,
+          bottom: top + gap
+        });
+      }
+
+      for (let i = 0; i < pipes.length; i++) {
+        pipes[i].x -= 2;
+
+        if (pipes[i].x + 40 < 0) {
+          pipes.splice(i, 1);
+          score++;
+        }
+
+        // collision
+        if (
+          50 + 20 > pipes[i].x &&
+          50 < pipes[i].x + 40 &&
+          (birdY < pipes[i].top || birdY + 20 > pipes[i].bottom)
+        ) {
+          resetGame();
+        }
+      }
+    }
+
+    function resetGame() {
+      birdY = 150;
+      birdVY = 0;
+      pipes = [];
+      score = 0;
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      birdVY += gravity;
+      birdY += birdVY;
+
+      if (birdY > canvas.height || birdY < 0) resetGame();
+
+      drawBird();
+      updatePipes();
+      pipes.forEach(drawPipe);
+
+      ctx.fillStyle = "#000";
+      ctx.font = "20px monospace";
+      ctx.fillText("Score: " + score, 10, 25);
+
+      frame++;
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+</body>
+</html>

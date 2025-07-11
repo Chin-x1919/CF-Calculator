@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CF-Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <!-- ปุ่มต่างๆ เหมือนเดิม -->
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('+')">+</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('-')">-</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('*')">*</button>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('/')">/</button>
+
+      <button class="clear" onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+<!-- Google Form Pop-up (แทน iframe) -->
+<div id="form-popup" class="form-popup" style="display:none;">
+  <div class="form-content">
+    <button class="close-btn" onclick="closeForm()">✖</button>
+    <p>yo pls do this form</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYZ1kdWXvOCA8OkJItjx9U4CpWz7tBaeAxDUDTf-cEtjnkSQ/viewform" 
+       target="_blank">
+      <button class="open-form-btn">Open in newtab</button>
+    </a>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
