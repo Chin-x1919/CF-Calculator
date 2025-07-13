@@ -11,7 +11,7 @@ Imagine a calculator.
 
 Now imagine that calculator has absolutely no intention of giving you the right answer.
 
-Welcome to **Randomulator™.**  
+We use the **Randomulator™.**  
 A next-level computational experience.  
 Where **2 + 2 might equal “FlappyBird”**
 
