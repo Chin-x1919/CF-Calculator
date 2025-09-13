@@ -2,7 +2,7 @@
 
 > “Reinventing Calculation. By Not Calculating At All.”
 
-you can try it here https://chin-x1919.github.io/calculator/index.html
+you can try it here https://chin-x1919.github.io/cf-calculator/index.html
 ---
 
 ## What is CF-Caculator™?
