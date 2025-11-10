@@ -48,6 +48,7 @@ function calculate() {
       "depends on os version",
       "System Busy",
       "Reboot Required",
+      "you are baned form using calculator"'
       "Launching FlappyBird...",
       "404: Math Not Found",
       "Error: Undefined Output"
