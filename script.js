@@ -41,6 +41,8 @@ function calculate() {
       "42",
       "67",
       "-67",
+      "box box",
+      "banna leclerc",
       "must be the water",
       "stay out stay out",
       "depends on os version",
