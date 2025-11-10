@@ -32,8 +32,9 @@ function calculate() {
       updateDisplay("Invalid");
     }
   } else {
-    // 90% มั่วคำตอบ
+    // 90% fucking dumb awnser
     const fakeOutputs = [
+      "depends on kernel version",
       "Hello World!",
       "Welcome to ChatGPT. How can I help you today?",
       "Please wait...",
